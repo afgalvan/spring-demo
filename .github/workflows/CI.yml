@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Setup PostgreSQL
         run: |
+          sudo service postgresql-13 initdb
+          sudo service postgresql-13 start
           sudo -u postgres createdb ${{ env.DB_NAME }}
 
       - uses: actions/checkout@v2
