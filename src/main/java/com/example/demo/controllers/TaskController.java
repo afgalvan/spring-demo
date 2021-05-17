@@ -2,13 +2,13 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Task;
 import com.example.demo.services.TaskService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.util.List;
-
 @Controller
 public class TaskController {
+
     @Autowired
     TaskService taskService;
 

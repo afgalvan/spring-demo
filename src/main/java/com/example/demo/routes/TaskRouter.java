@@ -1,12 +1,10 @@
 package com.example.demo.routes;
 
-
 import com.example.demo.controllers.TaskController;
 import com.example.demo.models.Task;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/tasks")
