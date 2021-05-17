@@ -15,7 +15,7 @@ jobs:
       - name: Set up MySQL 8
         uses: shogo82148/actions-setup-mysql@v1
         with:
-          mysql-version: '8.0'
+          mysql-version: "8.0"
       - name: SetUp MySQL
         run: |
           mysql -uroot -h127.0.0.1 < .github/workflows/init_db.sql
