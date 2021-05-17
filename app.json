@@ -1,0 +1,6 @@
+{
+  "name": "task-api",
+  "description": "A bare-bones Spring api deployed to Heroku.",
+  "image": "heroku/gradle",
+  "addons": [ "heroku-postgresql" ]
+}

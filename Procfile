@@ -1,1 +1,1 @@
-web: java -jar build/libs/spring-demo-0.0.1-SNAPSHOT.war
+web: java -jar build/libs/spring-demo-0.0.1-SNAPSHOT.war --spring.config.name=heroku
