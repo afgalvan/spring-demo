@@ -9,15 +9,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    env:
+      DB_NAME: tasks
+      DB_USER: root
+      DB_PASSWORD: root
     services:
       mysql:
         image: mysql:8.0
-        env:
-          DB_NAME: tasks
-          DB_USER: root
-          DB_PASSWORD: root
-        ports:
-          - 33306:3306
 
     steps:
       - name: Set up MySQL
