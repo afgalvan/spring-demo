@@ -27,7 +27,6 @@ jobs:
     steps:
       - name: Setup PostgreSQL
         run: |
-          sudo service postgresql initdb
           sudo service postgresql start
           sudo -u postgres createdb ${{ env.DB_NAME }}
 
