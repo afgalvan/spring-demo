@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       DB_NAME: springdemo
-      DB_USER: springroot
-      DB_PASSWORD: springroot
+      DB_USER: root
+      DB_PASSWORD: root
     services:
       mysql:
         image: mysql:8.0
@@ -27,8 +27,8 @@ jobs:
         run: |
           touch application.properties
           echo "spring.datasource.url=jdbc:mysql://localhost:3306/springdemo
-                spring.datasource.username=springroot
-                spring.datasource.password=springroot
+                spring.datasource.username=root
+                spring.datasource.password=root
                 server.port=8081
                 spring.jpa.open-in-view=true
                 spring.jpa.hibernate.ddl-auto=update" > application.properties
