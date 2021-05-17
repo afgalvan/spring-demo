@@ -1,38 +1,38 @@
-package com.example.demo.controllers;
-
-import static org.assertj.core.api.Assertions.*;
-
-import java.net.URL;
+package com.example.demo.routes;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerIT {
+class RouterTest {
 
-	@LocalServerPort
-	private int port;
+    private URL base;
 
-	private URL base;
+    @LocalServerPort
+    private int port;
 
-	@Autowired
-	private TestRestTemplate template;
+    @Autowired
+    private TestRestTemplate template;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() throws MalformedURLException {
         this.base = new URL("http://localhost:" + port + "/");
     }
 
     @Test
-    public void getHello() throws Exception {
+    void getHome() {
         ResponseEntity<String> response = template.getForEntity(base.toString(),
                 String.class);
-        assertThat(response.getBody()).isEqualTo("Greetings from Spring Boot!");
+        assertThat(response.getBody()).isEqualTo("Home");
     }
 }
