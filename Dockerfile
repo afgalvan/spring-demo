@@ -2,7 +2,10 @@ FROM gradle:jdk11 AS base
 WORKDIR /app
 COPY ./ /app
 
-FROM base AS build
+FROM base AS database
+FROM mysql:8.0
+
+FROM database AS build
 WORKDIR /app
 RUN gradle clean build
 
