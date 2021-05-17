@@ -16,13 +16,9 @@ jobs:
         uses: shogo82148/actions-setup-mysql@v1
         with:
           mysql-version: "8.0"
-      - name: SetUp MySQL
+      - name: Init MySQL database
         run: |
-          mysql -uroot -h127.0.0.1 < .github/workflows/init_db.sql
-      - name: Set up MySQL
-        run: |
-          sudo /etc/init.d/mysql start
-          mysql -e 'CREATE DATABASE ${{ env.DB_NAME }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+          mysql -uroot -h127.0.0.1 < sql/init_db.sql
 
       - name: Create application.properties
         run: |
