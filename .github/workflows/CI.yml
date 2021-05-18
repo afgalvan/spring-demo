@@ -18,7 +18,7 @@ jobs:
         env:
           POSTGRES_HOST: ${{ env.HOST_NAME }}
           POSTGRES_DB: ${{ env.DB_NAME }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTGRES_PASSWORD: root
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -34,9 +34,9 @@ jobs:
                 spring.datasource.platform=postgres
                 spring.jpa.show-sql=true
                 spring.jpa.generate-ddl=true
-                spring.datasource.url=jdbc:postgresql://localhost:5432/springdemo
+                spring.datasource.url=jdbc:postgresql://localhost:5432/${{ env.DB_NAME }}
                 spring.datasource.username=${{ env.HOST_NAME }}
-                spring.datasource.password=${{ secrets.DB_PASSWORD }}
+                spring.datasource.password=root
                 server.port=8081
                 spring.jpa.open-in-view=true
                 spring.jpa.hibernate.ddl-auto=update" > src/main/resources/application.properties
