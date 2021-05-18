@@ -3,12 +3,10 @@ WORKDIR /app
 COPY ./ /app
 
 FROM base AS database
-FROM mysql:8.0
+FROM postgres:13.3-alpine
+ENV POSTGRES_PASSWORD=root
+ENV POSTGRES_DB=springdemo
 
 FROM database AS build
 WORKDIR /app
-RUN gradle clean build
-
-FROM build AS test
-WORKDIR /app
-ENTRYPOINT ["gradle", "test", "--stacktrace"]
+ENTRYPOINT ["./gradlew", "clean", "bootRun", "--stacktrace"]

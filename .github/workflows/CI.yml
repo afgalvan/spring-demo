@@ -10,13 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     env:
-      DB_HOST: postgres
+      HOST_NAME: postgres
       DB_NAME: springdemo
     services:
       postgres:
         image: postgres:13.3-alpine
         env:
-          POSTGRES_HOST: ${{ env.DB_HOST }}
+          POSTGRES_HOST: ${{ env.HOST_NAME }}
+          POSTGRES_DB: ${{ env.DB_NAME }}
           POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
         options: >-
           --health-cmd pg_isready
@@ -25,11 +26,6 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Setup PostgreSQL
-        run: |
-          sudo service postgresql start
-          sudo -u postgres createdb ${{ env.DB_NAME }}
-
       - uses: actions/checkout@v2
       - name: Create application.properties
         run: |
@@ -39,7 +35,7 @@ jobs:
                 spring.jpa.show-sql=true
                 spring.jpa.generate-ddl=true
                 spring.datasource.url=jdbc:postgresql://localhost:5432/springdemo
-                spring.datasource.username=postgres
+                spring.datasource.username=${{ env.HOST_NAME }}
                 spring.datasource.password=${{ secrets.DB_PASSWORD }}
                 server.port=8081
                 spring.jpa.open-in-view=true
