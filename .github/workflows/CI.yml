@@ -9,15 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    env:
-      HOST_NAME: postgres
-      DB_NAME: springdemo
     services:
       postgres:
-        image: postgres:13.3-alpine
+        image: postgres:13
         env:
-          POSTGRES_HOST: ${{ env.HOST_NAME }}
-          POSTGRES_DB: ${{ env.DB_NAME }}
+          POSTGRES_DB: springdemo
           POSTGRES_PASSWORD: root
         options: >-
           --health-cmd pg_isready
@@ -34,8 +30,8 @@ jobs:
                 spring.datasource.platform=postgres
                 spring.jpa.show-sql=true
                 spring.jpa.generate-ddl=true
-                spring.datasource.url=jdbc:postgresql://localhost:5432/${{ env.DB_NAME }}
-                spring.datasource.username=${{ env.HOST_NAME }}
+                spring.datasource.url=jdbc:postgresql://localhost:5432/springdemo
+                spring.datasource.username=postgres
                 spring.datasource.password=root
                 server.port=8081
                 spring.jpa.open-in-view=true
