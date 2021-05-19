@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/tasks")
 public class TaskRouter {
 
+    private final TaskController taskController;
+
     @Autowired
-    TaskController taskController;
+    public TaskRouter(TaskController taskController) {
+        this.taskController = taskController;
+    }
 
     @GetMapping
     public List<Task> getTasks() {

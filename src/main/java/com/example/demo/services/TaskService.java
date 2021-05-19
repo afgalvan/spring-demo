@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskService {
 
-    @Autowired
     TaskRepository taskRepository;
+
+    @Autowired
+    public TaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     public List<Task> getTasks() {
         return (ArrayList<Task>) taskRepository.findAll();
