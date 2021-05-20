@@ -2,6 +2,7 @@
 
 [![Amazon Corretto 11](https://img.shields.io/static/v1?label=Corretto&message=v11&style=for-the-badge&logo=java&labelColor=22272E&color=orange)](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 [![Spring Boot](https://img.shields.io/static/v1?label=Spring&message=v2.4.5&style=for-the-badge&logo=spring&labelColor=22272E&color=6DB33F)](https://spring.io/projects/spring-boot)
+[![Gradle](https://img.shields.io/static/v1?label=Gradle&message=v6.8.1&style=for-the-badge&logo=gradle&labelColor=22272E&color=02303A)](https://gradle.org/)
 
 A basic REST API for tasks made in Java with Spring Boot.
 
