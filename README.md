@@ -1,6 +1,6 @@
 # spring-demo
 
-[![Amazon Corretto 11](https://img.shields.io/badge/Corretto-v11-orange)](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
+[![Amazon Corretto 11](https://img.shields.io/static/v1?label=Corretto&message=v11&style=flat&logo=java&labelColor=22272E&color=orange)](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 
 A basic REST API for tasks made in Java with Spring Boot.
 
