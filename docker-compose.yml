@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  db:
+    container_name: db
+    image: postgres:13.3-alpine
+    environment:
+      - POSTGRES_DB=springdemo
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+
+  api:
+    container_name: api
+    build: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/springdemo
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - ./src:/api/src
+    ports:
+      - "8081:8081"
+    command: ./gradlew -t bootRun

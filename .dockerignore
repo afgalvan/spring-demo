@@ -1,4 +1,11 @@
-node_modules
-.gradle
-.idea
-build
+**/node_modules
+**/.gradle
+**/.idea
+**/build
+**/bin
+**/.github
+**/README.md
+docker-compose.yml
+Dockerfile
+.gitignore
+.gitattributes

@@ -1,4 +1,4 @@
-import java.awt.Desktop
+// import java.awt.Desktop
 
 plugins {
 	id 'org.springframework.boot' version '2.4.5'
@@ -21,18 +21,18 @@ repositories {
 	mavenCentral()
 }
 
-tasks {
-    bootRun {
-        String url = "http://localhost:8081"
-        String.metaClass.browse = { ->
-            Desktop.desktop.browse(new URI(url))
-        }
+// tasks {
+//     bootRun {
+//         String url = "http://localhost:8081"
+//         String.metaClass.browse = { ->
+//             Desktop.desktop.browse(new URI(url))
+//         }
 
-        doFirst {
-            "https://www.google.com".browse()
-        }
-    }
-}
+//         doFirst {
+//             "https://www.google.com".browse()
+//         }
+//     }
+// }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

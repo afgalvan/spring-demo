@@ -22,6 +22,7 @@ public class Application {
                     .addMapping("/tasks/**")
                     .allowedOrigins(
                         "https://spring-task-app.vercel.app",
+                        "http://localhost:4000",
                         "https://spring-task-app.vercel.app"
                     )
                     .allowedMethods("*");
