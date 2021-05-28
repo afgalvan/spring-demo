@@ -20,7 +20,8 @@ public class Application {
             public void addCorsMappings(CorsRegistry registry) {
                 registry
                     .addMapping("/tasks/**")
-                    .allowedOrigins("http://localhost:4000");
+                    .allowedOrigins("http://localhost:4000")
+                    .allowedMethods("*");
             }
         };
     }
