@@ -21,8 +21,8 @@ public class Application {
                 registry
                     .addMapping("/tasks/**")
                     .allowedOrigins(
-                        "http://localhost:4000",
-                        "https://spring-task-app.vercel.app/"
+                        "https://spring-task-app.vercel.app",
+                        "https://spring-task-app.vercel.app"
                     )
                     .allowedMethods("*");
             }
