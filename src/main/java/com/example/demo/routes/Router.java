@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class Router {
 
-    @GetMapping
+    @GetMapping("/")
     public String getHome() {
-        return "Home";
+        return "Task Api";
     }
 }

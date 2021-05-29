@@ -1,3 +1,4 @@
+---
 version: "3.3"
 
 services:
@@ -26,3 +27,14 @@ services:
     ports:
       - "8081:8081"
     command: ./gradlew -t bootRun
+
+  httpd:
+    image: nginx:1.20-alpine 
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - api
