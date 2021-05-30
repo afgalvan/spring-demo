@@ -3,7 +3,8 @@ version: "3.3"
 
 services:
   db:
-    container_name: db
+    container_name: spring-task-db
+    restart: always
     image: postgres:13.3-alpine
     environment:
       - POSTGRES_DB=springdemo
@@ -11,7 +12,8 @@ services:
       - POSTGRES_PASSWORD=root
 
   api:
-    container_name: api
+    container_name: spring-task-api
+    restart: always
     build: .
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/springdemo
@@ -27,14 +29,3 @@ services:
     ports:
       - "8081:8081"
     command: ./gradlew -t bootRun
-
-  httpd:
-    image: nginx:1.20-alpine 
-    restart: always
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      - api
