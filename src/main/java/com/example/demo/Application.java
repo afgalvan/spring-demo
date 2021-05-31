@@ -25,6 +25,7 @@ public class Application {
                         "http://localhost",
                         "http://192.168.0.86",
                         "http://localhost:4000",
+                        "http://localhost:3000",
                         "https://spring-task-app.vercel.app"
                     )
                     .allowedMethods("*");

@@ -3,7 +3,7 @@ version: "3.3"
 
 services:
   db:
-    container_name: spring-task-db
+    container_name: spring-task-dev-db
     restart: always
     image: postgres:13.3-alpine
     environment:
@@ -12,7 +12,7 @@ services:
       - POSTGRES_PASSWORD=root
 
   api:
-    container_name: spring-task-api
+    container_name: spring-task-dev-api
     restart: always
     build: .
     environment:
